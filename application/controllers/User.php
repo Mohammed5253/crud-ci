@@ -38,6 +38,7 @@ class User extends CI_Controller {
        
         $this->UserModel->insert_entry();
         $data['users'] = $this->UserModel->get_last_ten_entries();
+        $this->load->view('layout/header');
         $this->load->view('user/index',$data);
     }
 
@@ -52,6 +53,15 @@ class User extends CI_Controller {
     public function updateEntries($id){
        
         $this->UserModel->update_data($id);
+        $data['users'] = $this->UserModel->get_last_ten_entries();
+        $this->load->view('layout/header');
+        $this->load->view('user/index',$data);
+    }
+
+    public function deleteEntries($id){
+        $this->db->where('id',$id);
+        $this->db->delete('entries');
+       
         $data['users'] = $this->UserModel->get_last_ten_entries();
         $this->load->view('layout/header');
         $this->load->view('user/index',$data);

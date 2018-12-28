@@ -1,5 +1,8 @@
 <div class="container">
-<table class="table">
+
+<div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-6 ">
+    <table class="table">
     <thead>
       <tr>
           <th>id</th>
@@ -22,16 +25,16 @@
         <td><?php echo $user->last_name ?></td>
         <td><?php echo $user->email ?></td>
         <td colspan="2">
-            <a href="<?php echo base_url();?>/index.php/user/editEntries/<?php echo $user->id?>">Edit</a>
-            <a href="<?php echo base_url();?>/index.php/user/delete_data/<?php echo $user->id?>">Delete</a>
+            <a href="user/editEntries/<?php echo $user->id?>">Edit</a>
+            <a href="<?php echo base_url();?>index.php/user/deleteEntries/<?php echo $user->id?>">Delete</a>
         </td>
 
       </tr>
             <?php } ?>
     </tbody>
   </table>
-<div class="row">
-    <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-6">
 		<form role="form" action="<?php echo base_url(); ?>/index.php/user/register" method="post">
 			<h2>Please Sign Up <small>It's free and always will be.</small></h2>
 			<hr class="colorgraph">
